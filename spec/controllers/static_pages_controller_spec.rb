@@ -22,4 +22,12 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to be_success
     end
   end
+
+  describe 'get root' do
+    it 'should get #home' do
+      expect(get: root_url(subdomain: nil)).to route_to(
+        controller: "static_pages",
+        action: "home")
+    end
+  end
 end
